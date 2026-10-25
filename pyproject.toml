@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "handsfree-mouse"
+version = "0.1.0"
+description = "Control the mouse cursor with facial movements through a standard webcam (dlib 68-landmark based)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name = "Md Moin Uddin" },
+  { name = "Nasim Ahmed Bulbul" },
+  { name = "Shaiqa Sharmeen" },
+]
+keywords = ["accessibility", "hands-free", "head-mouse", "dlib", "opencv", "human-computer-interaction"]
+dependencies = [
+  "numpy>=1.20",
+  "opencv-python>=4.5",
+  "dlib>=19.22",
+  "pyautogui>=0.9.53",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+handsfree-mouse = "handsfree_mouse.app:main"
+
+[tool.setuptools.packages.find]
+include = ["handsfree_mouse*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
